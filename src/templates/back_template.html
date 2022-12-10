@@ -8,24 +8,16 @@
     {{Extra}}
 </div>
 <style>
+    @import url("_anki_base.css");
+
     .card {
         background-color: white;
     }
 
-    .text {
-        font-family: arial;
-        font-size: 18px;
-    }
-
     .breadcrumb2 {
         font-family: arial;
-        font-size: 12px;
+        font-size: 11px;
         color: rgb(65, 65, 65);
-    }
-
-    .cloze {
-        font-weight: bold !important;
-        color: blue !important;
     }
 
     .nightMode .cloze {
@@ -60,6 +52,12 @@
     window.onload = function () { hljs.highlightAll() };
     var highlight = setInterval(function () {
         if (typeof hljs != "undefined") { hljs.highlightAll(); clearInterval(highlight); }
-    }, 500);
+    }, 100);
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/default.min.css">
+
+  {{#Tags}}
+  <div class="prettify-tags">{{clickable:Tags}}</div>
+  {{/Tags}}
+
+<script src="_my_script.js"></script>
