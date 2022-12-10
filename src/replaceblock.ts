@@ -30,7 +30,7 @@ export class ReplaceBlock extends Block {
         if (yamlTags == null) yamlTags = [];
         if (Array.isArray(yamlTags)) yamlTags = yamlTags.toString();
         yamlTags = yamlTags.split(/[ ,]+/);
-        let tags = [...yamlTags, this.vault.getName().replace(/\s/g, "_"), 'ObsidianAnkiSync', 'replaceblock'];
+        let tags = [...yamlTags, 'ObsidianAnkiSync', 'replaceblock'];
         console.debug(tags);
         let res = await AnkiConnect.addNote(oid, deck, "ObsidianAnkiSyncModel", { "oid": oid, "Text": text, "Extra": extra, "Breadcrumb": uri_html, "Config": JSON.stringify({}), "Tobedefinedlater": "Tobedefinedlater", "Tobedefinedlater2": "Tobedefinedlater2" }, tags);
         return oid;

@@ -51,7 +51,7 @@ export class BasicBlock extends Block {
         if (yamlTags == null) yamlTags = [];
         if (Array.isArray(yamlTags)) yamlTags = yamlTags.toString();
         yamlTags = yamlTags.split(/[ ,]+/);
-        let tags = [...yamlTags, this.vault.getName().replace(/\s/g, "_"), 'ObsidianAnkiSync', 'replaceblock'];
+        let tags = [...yamlTags, 'ObsidianAnkiSync', 'replaceblock'];
         console.debug(tags);
         return await AnkiConnect.updateNote(await this.getAnkiId(), deck, "ObsidianAnkiSyncModel", { "oid": oid, "Text": text, "Extra": extra, "Breadcrumb": BasicBlock.settings.breadcrumb ? uri_html : "" }, tags);
     }
